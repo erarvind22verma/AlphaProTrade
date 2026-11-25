@@ -1,0 +1,76 @@
+# Super administrators have broad access, except self role/status changes are denied by the model.
+p, super_admin, *, *, all, allow
+
+# Administrators can manage users and assign non-privileged roles.
+p, admin, users, create, all, allow
+p, admin, users, read, all, allow
+p, admin, users, update, all, allow
+p, admin, users, delete, all, allow
+p, admin, users, assign_role, all, allow
+p, admin, users, manage_user_status, all, allow
+
+# Every known role can read and update its own user profile.
+g, super_admin, basic_user
+g, admin, basic_user
+g, content_author, basic_user
+g, content_editor, basic_user
+g, content_approver, basic_user
+g, subscriber, basic_user
+g, trader, basic_user
+p, basic_user, users, read, own, allow
+p, basic_user, users, update, own, allow
+
+# Content access and editorial workflow actions.
+p, content_author, content, create, own, allow
+p, content_author, content, read, own, allow
+p, content_author, content, update, own, allow
+p, content_author, content, review, own, allow
+p, content_editor, content, read, all, allow
+p, content_editor, content, update, all, allow
+p, content_editor, content, review, all, allow
+p, content_editor, content, request_changes, all, allow
+p, content_approver, content, read, all, allow
+p, content_approver, content, approve, all, allow
+p, admin, content, read, all, allow
+p, admin, content, update, all, allow
+p, admin, content, publish, all, allow
+p, subscriber, account, read, own, allow
+p, trader, trading, read, own, allow
+
+# Only super administrators can assign privileged roles.
+p, super_admin, users, assign_privileged_role, all, allow
+p, super_admin, users, manage_user_status, all, allow
+
+# Subscription and entitlement management is restricted to active administrators.
+p, admin, subscription-plans, read, all, allow
+p, admin, subscription-plans, create, all, allow
+p, admin, subscription-plans, update, all, allow
+p, admin, subscription-plans, delete, all, allow
+p, admin, features, read, all, allow
+p, admin, features, create, all, allow
+p, admin, features, update, all, allow
+p, admin, features, delete, all, allow
+p, admin, user-subscriptions, read, all, allow
+p, admin, user-subscriptions, create, all, allow
+p, admin, user-subscriptions, update, all, allow
+p, admin, user-subscriptions, delete, all, allow
+p, admin, user-widget-subscriptions, read, all, allow
+p, admin, feature-entitlements, read, all, allow
+p, admin, feature-entitlements, create, all, allow
+p, admin, feature-entitlements, update, all, allow
+p, admin, feature-entitlements, delete, all, allow
+p, admin, banners, read, all, allow
+p, admin, banners, create, all, allow
+p, admin, banners, update, all, allow
+p, admin, banners, delete, all, allow
+p, admin, faqs, read, all, allow
+p, admin, faqs, create, all, allow
+p, admin, faqs, update, all, allow
+p, admin, faqs, delete, all, allow
+
+# Active subscribers and traders can request feature access; the entitlement
+# service separately checks their subscription and the plan-feature mapping.
+p, subscriber, features, use_feature, all, allow
+p, trader, features, use_feature, all, allow
+p, subscriber, subscription-plans, upgrade_subscription, all, allow
+p, trader, subscription-plans, upgrade_subscription, all, allow

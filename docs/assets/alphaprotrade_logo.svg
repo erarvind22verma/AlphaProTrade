@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="104" viewBox="0 0 520 104" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">AlphaProTrade — Market Intelligence for Traders</title>
+  <desc id="logoDesc">A gold rising market line icon beside the AlphaProTrade wordmark, with the tagline Market Intelligence for Traders beneath.</desc>
+  <g fill="none" stroke="#E5AC12" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 56 L25 39 L38 48 L63 20"/>
+    <path d="M48 20 H63 V35"/>
+  </g>
+  <text x="82" y="43" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="-0.55" fill="#F1F0EC">Alpha</text>
+  <text x="168" y="43" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="-0.55" fill="#E5AC12">Pro</text>
+  <text x="222" y="43" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="-0.55" fill="#F1F0EC">Trade</text>
+  <text x="83" y="70" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" letter-spacing="1.65" fill="#858994">MARKET INTELLIGENCE FOR TRADERS</text>
+</svg>
